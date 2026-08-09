@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   terraform:
-    name: Terraform Validation
+    name: Terraform Validation and Scan
     runs-on: ubuntu-latest
 
     steps:
@@ -19,8 +19,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.12.2
 
       - name: Terraform Version
         run: terraform version
@@ -33,3 +31,15 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Terraform Security Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: config
+          scan-ref: .
+          format: table
+          exit-code: 1
+          severity: HIGH,CRITICAL
+
+      - name: Terraform Plan
+        run: terraform plan
