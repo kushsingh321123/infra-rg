@@ -1,0 +1,17 @@
+name: Terraform CD
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  approval:
+    name: Manual Approval - Preprod
+    runs-on: ubuntu-latest
+    environment: preprod
+
+    steps:
+      - name: Approval received
+        run: echo "Preprod deployment approved."
