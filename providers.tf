@@ -1,4 +1,5 @@
 # terraform CI CS Excerise learning excerise2
+#Resource Group
 terraform {
 
   required_providers {
