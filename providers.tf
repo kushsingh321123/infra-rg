@@ -32,6 +32,10 @@ resource "azurerm_storage_account" "kdemo1s" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
+  network_rules {
+    default_action = "Deny"
+    bypass         = ["AzureServices"]
+  }
   tags = {
     Environment = "Development"
   }
@@ -44,6 +48,11 @@ resource "azurerm_storage_account" "kdemo2s" {
 
   account_tier             = "Standard"
   account_replication_type = "GRS"
+
+  network_rules {
+    default_action = "Deny"
+    bypass         = ["AzureServices"]
+  }
 
   depends_on = [
     azurerm_resource_group.KDEMO1R
