@@ -1,7 +1,4 @@
-#switch from Manin to feature branch
-
 terraform {
-
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
