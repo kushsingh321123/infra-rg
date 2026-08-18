@@ -11,9 +11,9 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  features {}
-}
+# provider "azurerm" {
+#   features {}
+# }
 
 #   resource "azurerm_resource_group" "KDEMO1R" {
 #   name     = "KDEMO1R"
