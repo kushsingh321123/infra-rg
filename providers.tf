@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+#switch from Manin to feature branch
+>>>>>>> 27b0ff36caa7dd3dde354053ff641ae74e73061c
 
 terraform {
 
