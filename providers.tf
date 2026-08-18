@@ -1,6 +1,5 @@
-# terraform CI CS Excerise learning excerise2
-#Resource Group
-#storage and Resource
+#switch from Manin to feature branch
+
 terraform {
 
   required_providers {
