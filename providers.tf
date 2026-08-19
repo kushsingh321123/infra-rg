@@ -67,3 +67,24 @@ resource "azurerm_storage_account" "kdemo2s" {
     Environment = "Development"
   }
 }
+resource "azurerm_storage_account" "kdemo3s" {
+  name                = "kdemo3s"
+  resource_group_name = azurerm_resource_group.KDEMO1R.name
+  location            = azurerm_resource_group.KDEMO1R.location
+
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  network_rules {
+    default_action = "Deny"
+    bypass         = ["AzureServices"]
+  }
+
+  depends_on = [
+    azurerm_resource_group.KDEMO1R
+  ]
+
+  tags = {
+    Environment = "Development"
+  }
+}
