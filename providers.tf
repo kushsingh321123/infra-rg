@@ -5,12 +5,12 @@ terraform {
       version = "~> 5.0.1"
     }
   }
-  backend "azurerm" {
-    resource_group_name  = "TerraformRB"
-    storage_account_name = "terraformrbstate"
-    container_name       = "tfstatefile"
-    key                  = "terraform.tfstatefile"
-  }
+  # backend "azurerm" {
+  #   resource_group_name  = "TerraformRB"
+  #   storage_account_name = "terraformrbstate"
+  #   container_name       = "tfstatefile"
+  #   key                  = "terraform.tfstatefile"
+  # }
 }
 
 provider "azurerm" {
