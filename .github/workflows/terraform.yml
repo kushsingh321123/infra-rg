@@ -55,9 +55,6 @@ jobs:
           format: table
           exit-code: 1
           severity: HIGH,CRITICAL
-          
+
       - name: Terraform Plan
         run: terraform plan
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
