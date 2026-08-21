@@ -7,7 +7,7 @@
 crash.log
 crash.*.log
 
-# Terraform variable files
+#Terraform variable files
 *.tfvars
 *.tfvars.json
 

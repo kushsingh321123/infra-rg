@@ -5,12 +5,13 @@ terraform {
       version = "~> 5.0.1"
     }
   }
-  # backend "azurerm" {
-  #   resource_group_name  = "TerraformRB"
-  #   storage_account_name = "terraformrbstate"
-  #   container_name       = "tfstatefile"
-  #   key                  = "terraform.tfstatefile"
-  # }
+
+  backend "azurerm" {
+    resource_group_name  = "TerraformRB"
+    storage_account_name = "terraformrbstate"
+    container_name       = "tfstatefile"
+    key                  = "terraform.tfstatefile"
+  }
 }
 
 provider "azurerm" {
@@ -26,7 +27,6 @@ resource "azurerm_resource_group" "KDEMO1R" {
   }
 }
 
-
 resource "azurerm_storage_account" "kdemo1s" {
   name                = "kdemo1s"
   resource_group_name = azurerm_resource_group.KDEMO1R.name
@@ -39,29 +39,54 @@ resource "azurerm_storage_account" "kdemo1s" {
     default_action = "Deny"
     bypass         = ["AzureServices"]
   }
+
   tags = {
     Environment = "Development"
   }
 }
 
+<<<<<<<<< Temporary merge branch 1
+# resource "azurerm_storage_account" "kdemo2s" {
+#   name                = "kdemo2s"
+#   resource_group_name = azurerm_resource_group.KDEMO1R.name
+#   location            = azurerm_resource_group.KDEMO1R.location
+
+#   account_tier             = "Standard"
+#   account_replication_type = "GRS"
+
+#   network_rules {
+#     default_action = "Deny"
+#     bypass         = ["AzureServices"]
+#   }
+
+#   depends_on = [
+#     azurerm_resource_group.KDEMO1R
+#   ]
+
+#   tags = {
+#     Environment = "Development"
+#   }
+# }
+=========
 resource "azurerm_storage_account" "kdemo2s" {
   name                = "kdemo2s"
   resource_group_name = azurerm_resource_group.KDEMO1R.name
   location            = azurerm_resource_group.KDEMO1R.location
 
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
+#   account_tier             = "Standard"
+#   account_replication_type = "GRS"
 
-  network_rules {
-    default_action = "Deny"
-    bypass         = ["AzureServices"]
-  }
+#   network_rules {
+#     default_action = "Deny"
+#     bypass         = ["AzureServices"]
+#   }
 
-  depends_on = [
-    azurerm_resource_group.KDEMO1R
-  ]
+#   depends_on = [
+#     azurerm_resource_group.KDEMO1R
+#   ]
 
   tags = {
     Environment = "Development"
   }
 }
+>>>>>>>>> Temporary merge branch 2
