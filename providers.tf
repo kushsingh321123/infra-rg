@@ -27,23 +27,23 @@ resource "azurerm_resource_group" "KDEMO1R" {
   }
 }
 
-resource "azurerm_storage_account" "kdemo1s" {
-  name                = "kdemo1s"
-  resource_group_name = azurerm_resource_group.KDEMO1R.name
-  location            = azurerm_resource_group.KDEMO1R.location
+# resource "azurerm_storage_account" "kdemo1s" {
+#   name                = "kdemo1s"
+#   resource_group_name = azurerm_resource_group.KDEMO1R.name
+#   location            = azurerm_resource_group.KDEMO1R.location
 
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
 
-  network_rules {
-    default_action = "Deny"
-    bypass         = ["AzureServices"]
-  }
+#   network_rules {
+#     default_action = "Deny"
+#     bypass         = ["AzureServices"]
+#   }
 
-  tags = {
-    Environment = "Development"
-  }
-}
+#   tags = {
+#     Environment = "Development"
+#   }
+# }
 
 # resource "azurerm_storage_account" "kdemo2s" {
 #   name                = "kdemo2s"
